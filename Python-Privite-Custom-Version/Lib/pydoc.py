@@ -1,39 +1,5 @@
 #!/usr/bin/env python3
-"""Generate Python documentation in HTML or text for interactive use.
 
-At the Python interactive prompt, calling help(thing) on a Python object
-documents the object, and calling help() starts up an interactive
-help session.
-
-Or, at the shell command line outside of Python:
-
-Run "pydoc <name>" to show documentation on something.  <name> may be
-the name of a function, module, package, or a dotted reference to a
-class or function within a module or module in a package.  If the
-argument contains a path segment delimiter (e.g. slash on Unix,
-backslash on Windows) it is treated as the path to a Python source file.
-
-Run "pydoc -k <keyword>" to search for a keyword in the synopsis lines
-of all available modules.
-
-Run "pydoc -p <port>" to start an HTTP server on the given port on the
-local machine.  Port number 0 can be used to get an arbitrary unused port.
-
-Run "pydoc -b" to start an HTTP server on an arbitrary unused port and
-open a Web browser to interactively browse documentation.  The -p option
-can be used with the -b option to explicitly specify the server port.
-
-Run "pydoc -w <name>" to write out the HTML documentation for a module
-to a file named "<name>.html".
-
-Module docs for core modules are assumed to be in
-
-    https://docs.python.org/X.Y/library/
-
-This can be overridden by setting the PYTHONDOCS environment variable
-to a different URL or to a local directory containing the Library
-Reference Manual pages.
-"""
 __all__ = ['help']
 __author__ = "Ka-Ping Yee <ping@lfw.org>"
 __date__ = "26 February 2001"
@@ -1603,16 +1569,13 @@ def resolve(thing, forceload=0):
     if isinstance(thing, str):
         object = locate(thing, forceload)
         if object is None:
-            raise ImportError('''\
-No Python documentation found for %r.
-Use help() to get the interactive help utility.
-Use help(str) for help on the str class.''' % thing)
+            raise ImportError('''没有这个 %r 指令的文档''' % thing)
         return object, thing
     else:
         name = getattr(thing, '__name__', None)
         return thing, name if isinstance(name, str) else None
 
-def render_doc(thing, title='Python Library Documentation: %s', forceload=0,
+def render_doc(thing, title='Fython 库文档: %s', forceload=0,
         renderer=None):
     """Render text documentation, given an object or a path to an object."""
     if renderer is None:
@@ -1637,7 +1600,7 @@ def render_doc(thing, title='Python Library Documentation: %s', forceload=0,
         desc += ' object'
     return title % desc + '\n\n' + renderer.document(object, name)
 
-def doc(thing, title='Python Library Documentation: %s', forceload=0,
+def doc(thing, title='Fython 库文档: %s', forceload=0,
         output=None):
     """Display text documentation, given an object or a path to an object."""
     try:
@@ -1861,10 +1824,7 @@ class Helper:
             self.intro()
             self.interact()
             self.output.write('''
-You are now leaving help and returning to the Python interpreter.
-If you want to ask for help on a particular object directly from the
-interpreter, you can type "help(object)".  Executing "help('string')"
-has the same effect as typing a particular string at the help> prompt.
+                现在您离开了帮助文档，在编译器客户端控制台
 ''')
 
     def interact(self):
@@ -1920,20 +1880,21 @@ has the same effect as typing a particular string at the help> prompt.
 
     def intro(self):
         self.output.write('''
-Welcome to Python {0}'s help utility!
-
-If this is your first time using Python, you should definitely check out
-the tutorial on the Internet at https://docs.python.org/{0}/tutorial/.
-
-Enter the name of any module, keyword, or topic to get help on writing
-Python programs and using Python modules.  To quit this help utility and
-return to the interpreter, just type "quit".
-
-To get a list of available modules, keywords, symbols, or topics, type
-"modules", "keywords", "symbols", or "topics".  Each module also comes
-with a one-line summary of what it does; to list the modules whose name
-or summary contain a given string such as "spam", type "modules spam".
-'''.format('%d.%d' % sys.version_info[:2]))
+Welcome to Fython's help utility!
+If this is your first time using Fython
+You can use Fython like python3.6 version
+This version is an extension of it
+I plan to customize this version to improve its efficiency and make it more humane.
+Hope to help you!
+很高兴您能使用我的 Fython 版本
+这个版本是Python3.6的自定义版本
+自定义这个版本的主要目的是提高它的效率并且使它更加人性化
+我本人也非常地热衷于编译源码，所以稍微改改自己用用
+假如您用起来觉得得心应手，不烦到我的github下载下来自己试试用用
+我的git地址是 git@github.com:fingerecho/LGsystem.git 
+谢谢您的支持！
+希望本文档对您有帮助！
+''')
 
     def list(self, items, columns=4, width=80):
         items = list(sorted(items))
@@ -1950,23 +1911,19 @@ or summary contain a given string such as "spam", type "modules spam".
 
     def listkeywords(self):
         self.output.write('''
-Here is a list of the Python keywords.  Enter any keyword to get more help.
-
+这里是Fython的关键字，大体而言，跟Python3.6 是一样的，键入即可获取帮助
 ''')
         self.list(self.keywords.keys())
 
     def listsymbols(self):
         self.output.write('''
-Here is a list of the punctuation symbols which Python assigns special meaning
-to. Enter any symbol to get more help.
-
-''')
+            这个是Fython 的标点符号列表，在Fython 中是有特殊含义的，请正确使用哦！
+            ''')
         self.list(self.symbols.keys())
 
     def listtopics(self):
         self.output.write('''
-Here is a list of available topics.  Enter any topic name to get more help.
-
+            这些是可用的模块
 ''')
         self.list(self.topics.keys())
 
@@ -1975,13 +1932,12 @@ Here is a list of available topics.  Enter any topic name to get more help.
             import pydoc_data.topics
         except ImportError:
             self.output.write('''
-Sorry, topic and keyword documentation is not available because the
-module "pydoc_data.topics" could not be found.
+                主题和关键字文档不可用
 ''')
             return
         target = self.topics.get(topic, self.keywords.get(topic))
         if not target:
-            self.output.write('no documentation found for %s\n' % repr(topic))
+            self.output.write('没有找到这个 %s 文档\n' % repr(topic))
             return
         if type(target) is type(''):
             return self.showtopic(target, more_xrefs)
@@ -1990,14 +1946,14 @@ module "pydoc_data.topics" could not be found.
         try:
             doc = pydoc_data.topics.topics[label]
         except KeyError:
-            self.output.write('no documentation found for %s\n' % repr(topic))
+            self.output.write('没有找到这个 %s 文档\n' % repr(topic))
             return
         doc = doc.strip() + '\n'
         if more_xrefs:
             xrefs = (xrefs or '') + ' ' + more_xrefs
         if xrefs:
             import textwrap
-            text = 'Related help topics: ' + ', '.join(xrefs.split()) + '\n'
+            text = '相关的主题: ' + ', '.join(xrefs.split()) + '\n'
             wrapped_text = textwrap.wrap(text, 72)
             doc += '\n%s\n' % '\n'.join(wrapped_text)
         pager(doc)
@@ -2014,13 +1970,11 @@ module "pydoc_data.topics" could not be found.
         try:
             import pydoc_data.topics
         except ImportError:
-            return('''
-Sorry, topic and keyword documentation is not available because the
-module "pydoc_data.topics" could not be found.
+            return('''主题和关键字不可用, 没有找到这个模块的文档
 ''' , '')
         target = self.topics.get(topic, self.keywords.get(topic))
         if not target:
-            raise ValueError('could not find topic')
+            raise ValueError('找不到这块的内容')
         if isinstance(target, str):
             return self._gettopic(target, more_xrefs)
         label, xrefs = target
@@ -2037,15 +1991,12 @@ module "pydoc_data.topics" could not be found.
     def listmodules(self, key=''):
         if key:
             self.output.write('''
-Here is a list of modules whose name or summary contains '{}'.
-If there are any, enter a module name to get more help.
-
+这个模块中包含 '{}' 的内容.
 '''.format(key))
             apropos(key)
         else:
             self.output.write('''
-Please wait a moment while I gather a list of all available modules...
-
+稍等一会儿
 ''')
             modules = {}
             def callback(path, modname, desc, modules=modules):
@@ -2058,8 +2009,7 @@ Please wait a moment while I gather a list of all available modules...
             ModuleScanner().run(callback, onerror=onerror)
             self.list(modules.keys())
             self.output.write('''
-Enter any module name to get more help.  Or, type "modules spam" to search
-for modules whose name or summary contain the string "spam".
+                键入主题名获取帮助 ，键入 模块名获取该模块的更多信息
 ''')
 
 help = Helper()
@@ -2626,7 +2576,7 @@ def cli():
         if not args: raise BadUsage
         for arg in args:
             if ispath(arg) and not os.path.exists(arg):
-                print('file %r does not exist' % arg)
+                print('文件 %r 不存在' % arg)
                 break
             try:
                 if ispath(arg) and os.path.isfile(arg):
@@ -2643,32 +2593,25 @@ def cli():
 
     except (getopt.error, BadUsage):
         cmd = os.path.splitext(os.path.basename(sys.argv[0]))[0]
-        print("""pydoc - the Python documentation tool
+        print("""pydoc - Fython doc 工具
 
 {cmd} <name> ...
-    Show text documentation on something.  <name> may be the name of a
-    Python keyword, topic, function, module, or package, or a dotted
-    reference to a class or function within a module or module in a
-    package.  If <name> contains a '{sep}', it is used as the path to a
-    Python source file to document. If name is 'keywords', 'topics',
-    or 'modules', a listing of these things is displayed.
+    <name>
+    Python 关键字、主题、函数、模块或包，或引用一个模块或模块中的类或函数  
+    如果 <name> 包含 '{sep}', 如果名称是“关键词”，“主题”，或者“模块”，则显示这些东西的列表。
 
 {cmd} -k <keyword>
-    Search for a keyword in the synopsis lines of all available modules.
+    在所有可用模块的概要行中搜索关键字
 
 {cmd} -p <port>
-    Start an HTTP server on the given port on the local machine.  Port
-    number 0 can be used to get an arbitrary unused port.
-
+   在本地机器上的给定端口上启动HTTP服务器。端口 0 可用于获取任意未使用的端口。
 {cmd} -b
-    Start an HTTP server on an arbitrary unused port and open a Web browser
-    to interactively browse documentation.  The -p option can be used with
-    the -b option to explicitly specify the server port.
+    在任意未使用的端口上启动HTTP服务器并打开Web浏览器交互式浏览文档。
+    -p选项可用于 -B选项显式指定服务器端口。
 
 {cmd} -w <name> ...
-    Write out the HTML documentation for a module to a file in the current
-    directory.  If <name> contains a '{sep}', it is treated as a filename; if
-    it names a directory, documentation is written for all the contents.
+  将模块的HTML文档写入当前文件中目录。如果<Name >包含“{SEP}”，则将其视为文件名；
+  它命名一个目录，为所有内容编写文档。
 """.format(cmd=cmd, sep=os.sep))
 
 if __name__ == '__main__':

@@ -1118,7 +1118,7 @@ In the interactive interpreter, ``quit`` and ``exit``  have long been strings so
 that new users get a somewhat helpful message when they try to quit::
 
    >>> quit
-   'Use Ctrl-D (i.e. EOF) to exit.'
+   'Ctrl-D  或者 exit() 推出控制台'
 
 In Python 2.5, ``quit`` and ``exit`` are now objects that still produce string
 representations of themselves, but are also callable. Newbies who try ``quit()``

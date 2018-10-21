@@ -43,9 +43,11 @@ configure:2807: checking build system type
 configure:2821: result: x86_64-pc-linux-gnu
 configure:2841: checking host system type
 configure:2854: result: x86_64-pc-linux-gnu
-configure:2884: checking for python3.6
-configure:2900: found /usr/local/bin/python3.6
-configure:2911: result: python3.6
+configure:2884: checking for python1.0
+configure:2914: result: no
+configure:2884: checking for python3
+configure:2900: found /usr/local/bin/python3
+configure:2911: result: python3
 configure:3011: checking for --enable-universalsdk
 configure:3058: result: no
 configure:3081: checking for --with-universal-archs
@@ -492,7 +494,7 @@ configure: failed program was:
 configure:7374: result: no
 configure:7565: checking whether pthreads are available without options
 configure:7590: gcc -o conftest    conftest.c  >&5
-/tmp/ccq7pesK.o: In function `main':
+/tmp/ccWPa9q5.o: In function `main':
 conftest.c:(.text+0x2e): undefined reference to `pthread_create'
 conftest.c:(.text+0x45): undefined reference to `pthread_detach'
 collect2: error: ld returned 1 exit status
@@ -5830,7 +5832,7 @@ configure: failed program was:
 configure:9687: result: no
 configure:9701: checking for library containing sem_init
 configure:9732: gcc -o conftest    conftest.c -ldl  >&5
-/tmp/ccRD1QqV.o: In function `main':
+/tmp/ccFtnGzT.o: In function `main':
 conftest.c:(.text+0xa): undefined reference to `sem_init'
 collect2: error: ld returned 1 exit status
 configure:9732: $? = 1
@@ -6099,7 +6101,7 @@ configure:9918: checking for --with-address-sanitizer
 configure:9930: result: no
 configure:9936: checking for t_open in -lnsl
 configure:9961: gcc -o conftest    conftest.c -lnsl  -lpthread -ldl  >&5
-/tmp/ccwPpw3U.o: In function `main':
+/tmp/cctWZoH3.o: In function `main':
 conftest.c:(.text+0xa): undefined reference to `t_open'
 collect2: error: ld returned 1 exit status
 configure:9961: $? = 1
@@ -6541,7 +6543,7 @@ configure:11382: $? = 0
 configure:11382: result: yes
 configure:11382: checking for getentropy
 configure:11382: gcc -pthread -o conftest    conftest.c -lpthread -ldl  >&5
-/tmp/ccqcK8Gw.o: In function `main':
+/tmp/ccRekbRF.o: In function `main':
 conftest.c:(.text+0xa): undefined reference to `getentropy'
 collect2: error: ld returned 1 exit status
 configure:11382: $? = 1
@@ -6786,7 +6788,7 @@ configure:11382: $? = 0
 configure:11382: result: yes
 configure:11382: checking for getwd
 configure:11382: gcc -pthread -o conftest    conftest.c -lpthread -ldl  >&5
-/tmp/ccjuWWe8.o: In function `main':
+/tmp/ccpHSRWe.o: In function `main':
 conftest.c:(.text+0xa): warning: the `getwd' function is dangerous and should not be used.
 configure:11382: $? = 0
 configure:11382: result: yes
@@ -6880,7 +6882,7 @@ configure:11382: $? = 0
 configure:11382: result: yes
 configure:11382: checking for plock
 configure:11382: gcc -pthread -o conftest    conftest.c -lpthread -ldl  >&5
-/tmp/ccxjgird.o: In function `main':
+/tmp/ccUaBeug.o: In function `main':
 conftest.c:(.text+0xa): undefined reference to `plock'
 collect2: error: ld returned 1 exit status
 configure:11382: $? = 1
@@ -7122,7 +7124,7 @@ configure:11382: $? = 0
 configure:11382: result: yes
 configure:11382: checking for pthread_init
 configure:11382: gcc -pthread -o conftest    conftest.c -lpthread -ldl  >&5
-/tmp/ccTn4wDl.o: In function `main':
+/tmp/cceamjgy.o: In function `main':
 conftest.c:(.text+0xa): undefined reference to `pthread_init'
 collect2: error: ld returned 1 exit status
 configure:11382: $? = 1
@@ -7534,7 +7536,7 @@ configure:11382: $? = 0
 configure:11382: result: yes
 configure:11382: checking for strlcpy
 configure:11382: gcc -pthread -o conftest    conftest.c -lpthread -ldl  >&5
-/tmp/ccjag6Gr.o: In function `main':
+/tmp/cc6Jfv6w.o: In function `main':
 conftest.c:(.text+0xa): undefined reference to `strlcpy'
 collect2: error: ld returned 1 exit status
 configure:11382: $? = 1
@@ -7828,7 +7830,7 @@ configure:11382: $? = 0
 configure:11382: result: yes
 configure:11382: checking for tempnam
 configure:11382: gcc -pthread -o conftest    conftest.c -lpthread -ldl  >&5
-/tmp/ccL7kmay.o: In function `main':
+/tmp/ccank90Q.o: In function `main':
 conftest.c:(.text+0xa): warning: the use of `tempnam' is dangerous, better use `mkstemp'
 configure:11382: $? = 0
 configure:11382: result: yes
@@ -7846,13 +7848,13 @@ configure:11382: $? = 0
 configure:11382: result: yes
 configure:11382: checking for tmpnam
 configure:11382: gcc -pthread -o conftest    conftest.c -lpthread -ldl  >&5
-/tmp/cchiT5TK.o: In function `main':
+/tmp/ccYwVPH3.o: In function `main':
 conftest.c:(.text+0xa): warning: the use of `tmpnam' is dangerous, better use `mkstemp'
 configure:11382: $? = 0
 configure:11382: result: yes
 configure:11382: checking for tmpnam_r
 configure:11382: gcc -pthread -o conftest    conftest.c -lpthread -ldl  >&5
-/tmp/ccr0LobQ.o: In function `main':
+/tmp/cc4eQuG6.o: In function `main':
 conftest.c:(.text+0xa): warning: the use of `tmpnam_r' is dangerous, better use `mkstemp'
 configure:11382: $? = 0
 configure:11382: result: yes
@@ -7918,7 +7920,7 @@ configure:11382: $? = 0
 configure:11382: result: yes
 configure:11382: checking for _getpty
 configure:11382: gcc -pthread -o conftest    conftest.c -lpthread -ldl  >&5
-/tmp/ccq7XGJu.o: In function `main':
+/tmp/cc519u0I.o: In function `main':
 conftest.c:(.text+0xa): undefined reference to `_getpty'
 collect2: error: ld returned 1 exit status
 configure:11382: $? = 1
@@ -8848,7 +8850,7 @@ configure:11926: $? = 0
 configure:11935: result: yes
 configure:11991: checking for chflags
 configure:12012: gcc -pthread -o conftest    conftest.c -lpthread -ldl  >&5
-/tmp/ccvNXmHZ.o: In function `main':
+/tmp/cc2bVdCj.o: In function `main':
 conftest.c:(.text+0x24): warning: warning: chflags is not implemented and will always fail
 configure:12012: $? = 0
 configure:12012: ./conftest
@@ -9134,7 +9136,7 @@ configure: failed program was:
 configure:12023: result: no
 configure:12040: checking for lchflags
 configure:12061: gcc -pthread -o conftest    conftest.c -lpthread -ldl  >&5
-/tmp/ccTsBhZ2.o: In function `main':
+/tmp/cc1LY1yk.o: In function `main':
 conftest.c:(.text+0x24): undefined reference to `lchflags'
 collect2: error: ld returned 1 exit status
 configure:12061: $? = 1
@@ -9439,7 +9441,7 @@ configure:12259: $? = 0
 configure:12263: result: yes
 configure:12276: checking for openpty
 configure:12276: gcc -pthread -o conftest    conftest.c -lpthread -ldl  >&5
-/tmp/ccgzC3Yg.o: In function `main':
+/tmp/ccQxYnGs.o: In function `main':
 conftest.c:(.text+0xa): undefined reference to `openpty'
 collect2: error: ld returned 1 exit status
 configure:12276: $? = 1
@@ -9771,7 +9773,7 @@ configure:12472: $? = 0
 configure:12472: result: yes
 configure:12486: checking for fseek64
 configure:12486: gcc -pthread -o conftest    conftest.c -lpthread -ldl  -lutil >&5
-/tmp/cclT75Lu.o: In function `main':
+/tmp/ccxP7NrB.o: In function `main':
 conftest.c:(.text+0xa): undefined reference to `fseek64'
 collect2: error: ld returned 1 exit status
 configure:12486: $? = 1
@@ -10099,7 +10101,7 @@ configure:12486: $? = 0
 configure:12486: result: yes
 configure:12486: checking for ftell64
 configure:12486: gcc -pthread -o conftest    conftest.c -lpthread -ldl  -lutil >&5
-/tmp/cczyxRHu.o: In function `main':
+/tmp/ccCKQc9M.o: In function `main':
 conftest.c:(.text+0xa): undefined reference to `ftell64'
 collect2: error: ld returned 1 exit status
 configure:12486: $? = 1
@@ -19119,6 +19121,7 @@ config.status:1292: creating Misc/python.pc
 config.status:1292: creating Misc/python-config.sh
 config.status:1292: creating Modules/ld_so_aix
 config.status:1292: creating pyconfig.h
+config.status:1473: pyconfig.h is unchanged
 
 ## ---------------- ##
 ## Cache variables. ##
@@ -19505,7 +19508,7 @@ ac_cv_path_install='/usr/bin/install -c'
 ac_cv_path_mkdir=/usr/bin/mkdir
 ac_cv_posix_semaphores_enabled=yes
 ac_cv_prog_CPP='gcc -E'
-ac_cv_prog_PYTHON_FOR_REGEN=python3.6
+ac_cv_prog_PYTHON_FOR_REGEN=python3
 ac_cv_prog_TRUE=true
 ac_cv_prog_ac_ct_AR=ar
 ac_cv_prog_ac_ct_CC=gcc
@@ -19659,12 +19662,12 @@ NO_AS_NEEDED='-Wl,--no-as-needed'
 OBJEXT='o'
 OPT='-DNDEBUG -g -fwrapv -O3 -Wall'
 OTHER_LIBTOOL_OPT=''
-PACKAGE_BUGREPORT='https://bugs.python.org/'
-PACKAGE_NAME='python'
-PACKAGE_STRING='python 3.6'
-PACKAGE_TARNAME='python'
+PACKAGE_BUGREPORT='https://fangself.com.cn'
+PACKAGE_NAME='fython'
+PACKAGE_STRING='fython 1.0'
+PACKAGE_TARNAME='fython'
 PACKAGE_URL=''
-PACKAGE_VERSION='3.6'
+PACKAGE_VERSION='1.0'
 PATH_SEPARATOR=':'
 PGO_PROF_GEN_FLAG='-fprofile-generate'
 PGO_PROF_USE_FLAG='-fprofile-use -fprofile-correction'
@@ -19679,7 +19682,7 @@ PYTHONFRAMEWORKIDENTIFIER='org.python.python'
 PYTHONFRAMEWORKINSTALLDIR=''
 PYTHONFRAMEWORKPREFIX=''
 PYTHON_FOR_BUILD='./$(BUILDPYTHON) -E'
-PYTHON_FOR_REGEN='python3.6'
+PYTHON_FOR_REGEN='python3'
 PY_ENABLE_SHARED='0'
 RANLIB='ranlib'
 READELF='readelf'

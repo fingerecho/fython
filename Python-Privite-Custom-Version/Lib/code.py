@@ -210,11 +210,9 @@ class InteractiveConsole(InteractiveInterpreter):
             sys.ps2
         except AttributeError:
             sys.ps2 = "... "
-        cprt = 'Type "help", "copyright", "credits" or "license" for more information.'
+        cprt =   'Type "This is private python version for git@fingerecho copyright fingerecho.cn \n Welcome to use this version \n Type "help", "copyright", "credits" or "license" for more information.\n'
         if banner is None:
-            self.write("Python %s on %s\n%s\n(%s)\n" %
-                       (sys.version, sys.platform, cprt,
-                        self.__class__.__name__))
+            self.write("Python customed from origin-py-3.6\n We called her fython\n%s\n(%s)\n " %(cprt,self.__class__.__name__))
         elif banner:
             self.write("%s\n" % str(banner))
         more = 0

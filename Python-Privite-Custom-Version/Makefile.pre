@@ -28,8 +28,8 @@ MODLIBS=        _MODLIBS_
 VERSION=	3.6
 srcdir=		.
 
-abs_srcdir=	/home/python-source/source/Python-3.6.7rc1
-abs_builddir=	/home/python-source/source/Python-3.6.7rc1
+abs_srcdir=	/home/python-source/source/Python-Privite-Custom-Version
+abs_builddir=	/home/python-source/source/Python-Privite-Custom-Version
 
 
 CC=		gcc -pthread
@@ -229,8 +229,8 @@ LIBOBJS=
 PYTHON=		python$(EXE)
 BUILDPYTHON=	python$(BUILDEXE)
 
-PYTHON_FOR_REGEN=python3.6
-UPDATE_FILE=python3.6 $(srcdir)/Tools/scripts/update_file.py
+PYTHON_FOR_REGEN=python3
+UPDATE_FILE=python3 $(srcdir)/Tools/scripts/update_file.py
 PYTHON_FOR_BUILD=./$(BUILDPYTHON) -E
 _PYTHON_HOST_PLATFORM=
 BUILD_GNU_TYPE=	x86_64-pc-linux-gnu

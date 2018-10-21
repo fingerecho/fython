@@ -578,11 +578,11 @@ MFLAGS=
 MAKEFLAGS=
 
 # Identity of this package.
-PACKAGE_NAME='python'
-PACKAGE_TARNAME='python'
-PACKAGE_VERSION='3.6'
-PACKAGE_STRING='python 3.6'
-PACKAGE_BUGREPORT='https://bugs.python.org/'
+PACKAGE_NAME='fython'
+PACKAGE_TARNAME='fython'
+PACKAGE_VERSION='1.0'
+PACKAGE_STRING='fython 1.0'
+PACKAGE_BUGREPORT='https://fangself.com.cn'
 PACKAGE_URL=''
 
 ac_unique_file="Include/object.h"
