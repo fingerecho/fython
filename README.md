@@ -8,5 +8,5 @@ Build Instructions
     sudo make install
 
 This will install Fython 1.0.
-![使用效果](./Python-Private-Custom-Version/docimg/help.jpg)
+![使用效果](./Python-Privite-Custom-Version/docimg/help.jpg)
 
